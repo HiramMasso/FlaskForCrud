@@ -60,7 +60,7 @@ def create_user():
 def delete_all_users():
     db.session.query(user).delete()
     db.session.commit()
-    return jsonify({'message': 'Estudiantes borrados correctamente'})
+    return jsonify({'message': 'User deleted succesfully'})
 
 # Ruta para eliminar un usuario por ID
 @app.route('/delete-user/<int:user_id>', methods=['DELETE'])
@@ -83,6 +83,3 @@ def update_one_user(user_id):
         db.session.commit()
         return jsonify({'message': 'Estudiante actualizado parcialmente', 'data': user_instance.to_dict()})
     return jsonify({'message': 'user not found'})
-
-if __name__ == '__main__':
-    app.run(debug=True)
